@@ -1,5 +1,6 @@
 
 {
+  "version": 2,
   "rewrites": [
     {
       "source": "/api/transactions/:id*",
@@ -10,7 +11,7 @@
       "destination": "/api/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
