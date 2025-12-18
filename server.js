@@ -51,6 +51,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () '0.0.0.0' , => {
-  console.log(`[Server] ClinicaFinance AI pronto all'indirizzo http://0.0.0.0:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`[Server] ClinicaFinance AI pronto e accessibile su http://0.0.0.0:${PORT}`);
 });
