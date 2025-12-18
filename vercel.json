@@ -1,0 +1,17 @@
+
+{
+  "rewrites": [
+    {
+      "source": "/api/transactions/:id*",
+      "destination": "/api/transactions"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

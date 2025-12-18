@@ -4,6 +4,7 @@ import { Transaction } from "../types";
 
 export const analyzeBudget = async (transactions: Transaction[]): Promise<string> => {
   try {
+    // Inizializzazione corretta secondo le linee guida: deve usare l'oggetto con proprietà named
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
     
     const prompt = `
@@ -22,13 +23,14 @@ export const analyzeBudget = async (transactions: Transaction[]): Promise<string
       model: 'gemini-3-flash-preview',
       contents: prompt,
       config: {
-        temperature: 0.7,
+        systemInstruction: "Sei un consulente finanziario esperto in gestione di studi medici."
       },
     });
 
+    // Accesso corretto alla proprietà .text (non metodo)
     return response.text || "Non è stato possibile generare un'analisi al momento.";
   } catch (error) {
     console.error("Errore durante l'analisi AI:", error);
-    return "Errore nella comunicazione con l'assistente AI. Riprova più tardi.";
+    return "Errore nella comunicazione con l'assistente AI. Assicurati che l'API KEY sia configurata su Vercel.";
   }
 };
